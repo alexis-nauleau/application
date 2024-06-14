@@ -1,87 +1,95 @@
 package com.example.myapplication
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material3.CenterAlignedTopAppBar
-import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material.icons.filled.AddCircle
+import androidx.compose.material.icons.filled.Create
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.LayoutModifier
+import androidx.compose.ui.layout.layout
+import androidx.compose.ui.unit.dp
 import com.example.myapplication.ui.theme.MyApplicationTheme
 
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             MyApplicationTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
+                Scaffold(modifier = Modifier.fillMaxSize(), containerColor = Color(0xFF1B7FA0)) { innerPadding ->
+
+                    Top(
+                        modifier=Modifier
+                            .fillMaxWidth()
+                            .padding(top=50.dp)
+                            .background(Color(0xFFC3CFD3))
+                            .height(90.dp)
+
+
                     )
-                    TopBarNavigationExample(navigateBack = { println("Coucou") })
+                    Middle(
+                        modifier=Modifier
+                            .fillMaxWidth()
+                            .padding(top=350.dp)
+                            .background(Color(0xFF72ABBE))
+                            .height(200.dp)
+
+                    )
+
+                    Bottom(
+                        modifier=Modifier
+                            .fillMaxWidth()
+                            .padding(top=660.dp)
+                            .background(Color(0xFF033546))
+                            .height(250.dp)
+
+                    )
 
                 }
             }
         }
     }
 
-
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun TopBarNavigationExample(
-    navigateBack: () -> Unit,
-) {
-    Scaffold(
-        topBar = {
-            CenterAlignedTopAppBar(
-                title = {
-                    Text(
-                        "Navigation example",
-                    )
-                },
-                navigationIcon = {
-                    IconButton(onClick = navigateBack) {
-                        Icon(
-                            imageVector = Icons.Filled.ArrowBack,
-                            contentDescription = "Localized description"
-                        )
-                    }
-                },
-            )
-        },
-    ) { innerPadding ->
+fun Top( modifier: Modifier = Modifier) {
+    Row() {
+        Icon(imageVector = Icons.Filled.Create, contentDescription = "",modifier=modifier)
         Text(
-            "Click the back button to pop from the back stack.",
-            modifier = Modifier.padding(innerPadding),
-        )
-    }
+            text = "Top",
+            modifier = modifier) }
+}
+@Composable
+fun Middle( modifier: Modifier = Modifier) {
+    Row() {
+
+        Text(
+            text = "middle",
+            modifier = modifier) }
 }
 
-@Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
-    MyApplicationTheme {
-        Greeting("Android")
-    }
+fun Bottom( modifier: Modifier = Modifier) {
+    Row() {
+        Text(
+            text = "middle",
+            modifier = modifier) }
 }
+
