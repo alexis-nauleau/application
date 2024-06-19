@@ -52,7 +52,7 @@ class MainActivity : ComponentActivity() {
                             Spacer(Modifier.weight(2.25f))
                             Box(
                                 Modifier
-                                    .background(Color(0xFF1B7FA0))
+                                    .background(Color(0xBA1B7FA0))
                                     .fillMaxWidth()
                                     .weight(2.5f)
 

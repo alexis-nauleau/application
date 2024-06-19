@@ -28,9 +28,9 @@ public fun MaBox() {
     )
     Box(
         Modifier
-            .background(Color.Yellow)
+            .background(Color(0xBA1B7FA0))
             .width(150.dp)
-            .padding(end = 10.dp)
+            .padding(start = 10.dp, end = 10.dp)
     )
     {
         Column {
