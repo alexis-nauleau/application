@@ -34,12 +34,12 @@ class MainActivity : ComponentActivity() {
                     Box(
                         Modifier
                             //.background(Color(0xFF72ABBE))
-                            .fillMaxSize()
+                            //.fillMaxSize()
                             .padding(innerPadding)
                             .paint(
 
                                 painterResource(id = R.drawable.image3),
-                                contentScale = ContentScale.FillHeight)
+                                contentScale = ContentScale.FillHeight,)
 
                     ) {
                         Column {

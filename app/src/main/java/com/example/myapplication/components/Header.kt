@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.ArrowBack
 import androidx.compose.material3.Icon
@@ -23,6 +24,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.flow.MutableStateFlow
 
@@ -59,7 +61,10 @@ fun Header() {
             modifier = Modifier
                 .border(width = 0.dp, color = Color.Transparent)
                 .weight(5f)
-                .clip(RoundedCornerShape(100))
+                .clip(RoundedCornerShape(100)),
+            keyboardOptions = KeyboardOptions.Default.copy( //transforme le bouton entrer en valider
+                imeAction = ImeAction.Done
+            )
         )
     }
 }
